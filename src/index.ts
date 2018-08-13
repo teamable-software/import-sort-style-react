@@ -3,7 +3,7 @@ import {readdirSync} from "fs";
 
 const fixedOrder = ["react", "prop-types"];
 
-export default function(styleApi: IStyleAPI): Array<IStyleItem> {
+export default function (styleApi: IStyleAPI): Array<IStyleItem> {
     const {
         alias,
         and,
@@ -69,10 +69,10 @@ export default function(styleApi: IStyleAPI): Array<IStyleItem> {
         },
         {separator: true},
 
-	// import "./styles.css";
+        // import "./styles.css";
         {match: and(hasNoMember, isRelativeModule, isStylesModule)},
 
-	// import styles from "./Components.scss";
+        // import styles from "./Components.scss";
         {match: isStylesModule, sort: [dotSegmentCount, moduleName(naturally)], sortNamedMembers: alias(unicode)},
         {separator: true},
         {separator: true},
